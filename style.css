@@ -1,0 +1,281 @@
+/* ===== Reset cơ bản ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Shantell Sans', cursive;
+}
+
+/* ===== Biến màu động ===== */
+:root {
+  --primary-color: #007bff;
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* ===== Dark mode ===== */
+body.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+/* ===== Body ===== */
+body {
+  background: no-repeat center center fixed;
+  background-size: cover;
+  background-color: var(--background-color);
+  background-image: url('assets/backgrounds/light_bg.jpg');
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  transition: all 0.5s ease;
+}
+
+/* ===== Container chính ===== */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===== Top bar ===== */
+.top-bar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#mode-toggle {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+#color-picker {
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+/* ===== Avatar + Neon Rainbow Frame ===== */
+.avatar-frame {
+  margin: 20px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 400% 400%;
+  animation: rainbowBackground 8s ease infinite;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--background-color);
+}
+
+/* ===== Tên + Ngày sinh / Tuổi ===== */
+#name {
+  font-size: 2.5em;
+  margin-top: 20px;
+  animation: rainbowText 8s linear infinite;
+}
+
+#birthday {
+  font-size: 1.2em;
+  margin-top: 10px;
+  animation: rainbowTextSmall 8s linear infinite;
+}
+
+#birthday #age {
+  font-weight: bold;
+}
+
+/* ===== Menu ===== */
+/* ===== Hover Menu Buttons Rainbow Border ===== */
+.menu-btn {
+  background: var(--primary-color);
+  color: #fff;
+  border: 2px solid transparent; /* Viền mặc định trong suốt */
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Hiệu ứng viền rainbow khi hover */
+.menu-btn:hover {
+  border: 2px solid transparent; /* vẫn giữ transparent để dùng background clip */
+  background-image: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 400% 400%;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  animation: rainbowBorder 8s linear infinite;
+}
+
+/* Khi hover thì nền nút vẫn là var(--primary-color) */
+.menu-btn:hover::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px; right: 2px; bottom: 2px;
+  background: var(--primary-color);
+  border-radius: 6px; /* hơi nhỏ hơn border ngoài */
+  z-index: -1;
+}
+
+/* Keyframes chạy màu rainbow quanh viền */
+@keyframes rainbowBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== Content Area ===== */
+.content-area {
+  margin-top: 30px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  min-height: 200px;
+  transition: all 0.5s;
+}
+
+/* ===== Keyframes ===== */
+
+/* Rainbow Background for Avatar */
+@keyframes rainbowBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Rainbow Text Effect */
+@keyframes rainbowText {
+  0%, 100% { color: red; }
+  16% { color: orange; }
+  32% { color: yellow; }
+  48% { color: green; }
+  64% { color: cyan; }
+  80% { color: blue; }
+}
+
+/* Rainbow Text Small for Birthday */
+@keyframes rainbowTextSmall {
+  0%, 100% { color: violet; }
+  16% { color: blue; }
+  32% { color: cyan; }
+  48% { color: green; }
+  64% { color: yellow; }
+  80% { color: orange; }
+}
+
+/* Pulse nhẹ khi tạm dừng */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* ===== Các Class Hiệu Ứng ===== */
+.rainbow-text {
+  animation: rainbowText 5s linear infinite;
+}
+
+.paused-effect {
+  animation: pulse 2s infinite;
+  color: #ffffff;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+.blue-glow-text {
+  animation: blue-glow 3s ease-in-out infinite;
+}
+
+/* Blue Glow Effect */
+@keyframes blue-glow {
+  0%, 100% {
+    color: #00aaff;
+    text-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 20px #00aaff;
+  }
+  50% {
+    color: #66ccff;
+    text-shadow: 0 0 10px #66ccff, 0 0 20px #66ccff, 0 0 30px #66ccff;
+  }
+}
+
+/* ===== Responsive cho Mobile ===== */
+@media (max-width: 768px) {
+  .avatar-frame {
+    width: 140px;
+    height: 140px;
+  }
+
+  #name {
+    font-size: 2em;
+  }
+
+  #birthday {
+    font-size: 1em;
+  }
+
+  .menu-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}.sns-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* THÊM cái này để căn giữa */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sns-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* căn giữa luôn mỗi hàng */
+  gap: 10px;
+}
+
+
+.sns-list a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.sns-list a:hover {
+  color: violet;
+}
+
+.sns-name {
+  color: var(--text-color);
+  font-style: italic;
+}

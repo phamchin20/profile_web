@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="icon" type="image/png" href="assets/favicon.jpg">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile bạn T</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+  <div class="container">
+
+    <!-- Light/Dark mode toggle + Color Picker -->
+    <div class="top-bar">
+      <button id="mode-toggle">🌙/☀️</button>
+      <input type="color" id="color-picker" value="#007bff">
+
+
+    </div>
+
+    <!-- Avatar + Name + Birthday -->
+    <div class="profile">
+      <div class="avatar-frame">
+        <img src="assets/avatar/avatar.png" alt="Avatar" class="avatar">
+    </div>
+    <h1 id="name">Lee Wonhee</h1>
+    <p id="birthday">
+        <span id="birthdate">29/11/2010</span> - <span id="age">0</span> tuổi
+      </p>
+      <p id="location" class="rainbow-text">Ân Thi, Hưng Yên</p>
+      <p id="bio" class="blue-glow-text"> T là một người rất thích công nghệ và K-Pop</p>
+
+    
+
+    </div>
+
+    <!-- Menu -->
+    <div class="menu">
+      <button class="menu-btn active" data-section="introduce">Giới thiệu</button>
+      <button class="menu-btn" data-section="skills">Kĩ năng</button>
+      <button class="menu-btn" data-section="hobbies">Sở thích</button>
+      <button class="menu-btn" data-section="letter">T's Letter</button>
+      <button class="menu-btn" data-section="sns">T's SNS</button>
+    </div>
+
+    <!-- Nội dung -->
+    <div id="content" class="content-area">
+      <!-- Nội dung từ sub_html/ sẽ load vào đây -->
+    </div>
+
+  </div>
+
+  <!-- Sound -->
+  <audio id="click-sound" src="assets/sounds/click.mp3" preload="auto"></audio>
+
+
+  <!-- Script -->
+  <script src="scripts.js"></script>
+
+</body>
+</html>
