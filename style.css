@@ -159,7 +159,6 @@ body {
 .content-area {
   margin-top: 30px;
   padding: 20px;
-  backdrop-filter: blur(10px);
   border-radius: 12px;
   min-height: 200px;
   transition: all 0.5s;
